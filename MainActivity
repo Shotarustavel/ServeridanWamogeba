@@ -1,0 +1,37 @@
+package com.lasha.lashatest;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+
+
+import android.widget.ListView;
+
+import java.util.ArrayList;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+
+        ArrayList<LashaJava> students = new ArrayList<>();
+
+        for (int  i = 0 ; i < Date.names.length; i++){
+
+            LashaJava newStudents = new LashaJava(Date.names[i],Date.surName[i],Date.images[i]);
+            students.add(newStudents);
+        }
+
+
+        ListView listView = findViewById(R.id.listView);
+
+
+        GeolabAdapter adapter = new GeolabAdapter(this , students);
+        listView.setAdapter(adapter);
+
+
+    }
+}
